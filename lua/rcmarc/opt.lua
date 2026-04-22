@@ -20,6 +20,8 @@ vim.opt.colorcolumn = "80"
 vim.opt.spell = true
 vim.opt.spelllang = "en_us"
 
+vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
+
 vim.cmd [[ colorscheme gruvbox ]]
 
 -- transparent background

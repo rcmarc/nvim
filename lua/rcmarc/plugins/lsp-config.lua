@@ -11,7 +11,7 @@ return {
 					local client = vim.lsp.get_client_by_id(args.data.client_id)
 					if client and client:supports_method('textDocument/completion') then
 						-- Enable completion and set autotrigger to true for automatic popup
-						vim.lsp.completion.enable(true, client.id, args.buf)
+						vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true } )
 						vim.keymap.set('i', '<c-space>', function()
 							vim.lsp.completion.get()
 						end)
