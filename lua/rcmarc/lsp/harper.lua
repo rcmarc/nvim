@@ -4,5 +4,4 @@ vim.lsp.config('harper_ls', {
 	filetypes = { 'markdown', 'text', 'tex', 'typst' },
 	root_markers = { '.git' },
 })
-vim.diagnostic.config({ virtual_lines = true })
 vim.lsp.enable('harper_ls')
