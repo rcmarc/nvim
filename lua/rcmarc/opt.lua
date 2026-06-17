@@ -22,7 +22,7 @@ vim.opt.spelllang = "en_us"
 
 vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 
-vim.cmd [[ colorscheme gruvbox ]]
+vim.cmd [[ colorscheme tokyonight-night ]]
 
 -- transparent background
 vim.cmd([[
