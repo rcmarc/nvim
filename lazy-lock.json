@@ -1,4 +1,5 @@
 {
+  "codecompanion.nvim": { "branch": "main", "commit": "65b8938ec42d0226bb456b8df20aa6729e2849b3" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "nvim-lspconfig": { "branch": "master", "commit": "a683e0ddf0cf64c6cd689e18ffb480ade3c162b7" },
   "nvim-treesitter": { "branch": "main", "commit": "4916d6592ede8c07973490d9322f187e07dfefac" },
