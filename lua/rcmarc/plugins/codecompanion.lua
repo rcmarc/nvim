@@ -3,38 +3,41 @@ return {
 	version = "^19.0.0",
 	opts = {
 		interactions = {
-			cli = {
-				agent = "claude_code",
-				agents = {
-					claude_code = {
-						cmd = "claude",
-						args = {},
-						description = "Claude Code CLI",
-						provider = "terminal",
-					},
-				},
-			},
-			inline = {
-				adapter = "claude_code",
-			},
-			chat = {
-				adapter = "claude_code",
-			},
+			cli = { adapter = "lmstudio" },
+			inline = { adapter = "lmstudio" },
+			chat = { adapter = "lmstudio" }
 		},
 		adapters = {
-			acp = {
-				claude_code = function()
-					return require("codecompanion.adapters").extend("claude_code", {
+			http = {
+				lmstudio = function()
+					return require("codecompanion.adapters").extend("openai_compatible", {
+						name = "lmstudio",
 						env = {
-							CLAUDE_CODE_OAUTH_TOKEN = "CLAUDE_CODE_OAUTH_TOKEN",
+							url = "http://localhost:1234",
+							api_key = "lm-studio", -- LM Studio doesn't check this, just needs to be present
+						},
+						schema = {
+							model = {
+								default = "qwen/qwen3-coder-30b", -- must match what LM Studio reports
+							},
 						},
 					})
 				end,
+			},
+		},
+		extensions = {
+			spinner = {
+				opts = {
+					style = "cursor-relative",
+				},
 			},
 		}
 	},
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-treesitter/nvim-treesitter",
+		"lalitmee/codecompanion-spinners.nvim"
 	},
 }
+
+
