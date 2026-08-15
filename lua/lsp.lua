@@ -80,7 +80,7 @@ vim.lsp.config('lua_ls', {
 vim.lsp.enable('lua_ls')
 
 -- Web
-vim.lsp.enable('tsgo')
+vim.lsp.enable('tsc')
 vim.lsp.enable('oxlint')
 vim.lsp.enable('oxfmt')
 vim.lsp.enable('eslint')
@@ -95,3 +95,7 @@ vim.lsp.config('cssls', {
 	capabilities = htmlcss_capabilities,
 })
 vim.lsp.enable('cssls')
+
+
+-- Others
+vim.lsp.enable('clangd')
