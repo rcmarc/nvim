@@ -6,22 +6,20 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd('LspAttach', {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		local opts = { buffer = args.buf }
 		if client and client:supports_method('textDocument/completion') then
 			-- Enable completion and set autotrigger to true for automatic popup
 			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-			vim.keymap.set('i', '<c-space>', function()
-				vim.lsp.completion.get()
-			end)
+			vim.keymap.set('i', '<c-space>', vim.lsp.completion.get, opts)
 		end
-		local opts = { buffer = args.buf }
-		vim.keymap.set("n", "<leader>gq", function() vim.lsp.buf.format() end, opts)
-		vim.keymap.set("n", "<leader>gd", function() vim.lsp.buf.definition() end, opts)
-		vim.keymap.set("n", "<leader>gh", function() vim.lsp.buf.hover() end, opts)
-		vim.keymap.set("n", "<leader>gf", function() vim.diagnostic.open_float() end, opts)
-		vim.keymap.set("n", "<leader>gca", function() vim.lsp.buf.code_action() end, opts)
-		vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.rename() end, opts)
-		vim.keymap.set("n", "<leader>gt", function() vim.lsp.buf.references() end, opts)
-		vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+		vim.keymap.set("n", "<leader>gq", vim.lsp.buf.format, opts)
+		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>gf", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "<leader>gca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "<leader>gt", vim.lsp.buf.references, opts)
+		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
 		vim.keymap.set("n", "<leader>[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
 	end
