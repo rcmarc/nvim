@@ -23,6 +23,8 @@ vim.opt.spelllang = "en_us"
 
 vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 
+vim.opt.exrc = true
+
 vim.cmd [[ colorscheme tokyonight-night ]]
 
 -- transparent background

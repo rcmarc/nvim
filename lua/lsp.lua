@@ -77,23 +77,11 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
--- Web
-vim.lsp.enable('tsc')
-vim.lsp.enable('oxlint')
-vim.lsp.enable('oxfmt')
-vim.lsp.enable('eslint')
-vim.lsp.enable('jsonls')
 local htmlcss_capabilities = vim.lsp.protocol.make_client_capabilities()
 htmlcss_capabilities.textDocument.completion.completionItem.snippetSupport = true
 vim.lsp.config('html', {
 	capabilities = htmlcss_capabilities,
 })
-vim.lsp.enable('html')
 vim.lsp.config('cssls', {
 	capabilities = htmlcss_capabilities,
 })
-vim.lsp.enable('cssls')
-
-
--- Others
-vim.lsp.enable('clangd')
