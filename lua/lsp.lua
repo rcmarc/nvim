@@ -75,13 +75,12 @@ vim.lsp.config('lua_ls', {
 		Lua = {}
 	}
 })
-vim.lsp.enable('lua_ls')
 
-local htmlcss_capabilities = vim.lsp.protocol.make_client_capabilities()
-htmlcss_capabilities.textDocument.completion.completionItem.snippetSupport = true
-vim.lsp.config('html', {
-	capabilities = htmlcss_capabilities,
+-- aditional root markers for scala.
+vim.lsp.config('metals', {
+	root_markers = {
+		'project.scala', '.bsp', '.scala-build',
+		'build.sbt', 'build.sc', { 'build.gradle', 'build.gradle.kts' }, 'pom.xml',
+	},
 })
-vim.lsp.config('cssls', {
-	capabilities = htmlcss_capabilities,
-})
+
