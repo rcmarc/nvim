@@ -2,13 +2,6 @@ vim.g.mapleader = " "
 
 vim.opt.nu = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = false
-
-vim.opt.smartindent = true
-
 vim.opt.scrolloff = 8
 
 vim.opt.hlsearch = false
@@ -23,6 +16,7 @@ vim.opt.spelllang = "en_us"
 
 vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 
+-- for project specific config
 vim.opt.exrc = true
 
 vim.cmd [[ colorscheme tokyonight-night ]]
