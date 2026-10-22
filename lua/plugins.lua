@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
 
 vim.pack.add({
 	'https://github.com/neovim/nvim-lspconfig',
-	'https://github.com/folke/tokyonight.nvim',
 	'https://github.com/nvim-treesitter/nvim-treesitter',
 	'https://github.com/nvim-lua/plenary.nvim',
 	'https://github.com/nvim-telescope/telescope-fzf-native.nvim',

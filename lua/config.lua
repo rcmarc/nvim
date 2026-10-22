@@ -19,8 +19,6 @@ vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
 -- for project specific config
 vim.opt.exrc = true
 
-vim.cmd [[ colorscheme tokyonight-night ]]
-
 -- transparent background
 vim.cmd([[
   hi Normal guibg=NONE ctermbg=NONE
