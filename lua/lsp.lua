@@ -9,7 +9,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		local opts = { buffer = args.buf }
 		if client and client:supports_method('textDocument/completion') then
 			-- Enable completion and set autotrigger to true for automatic popup
-			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+			vim.lsp.completion.enable(true, client.id, args.buf)
 			vim.keymap.set('i', '<c-space>', vim.lsp.completion.get, opts)
 		end
 		vim.keymap.set("n", "<leader>gq", vim.lsp.buf.format, opts)
