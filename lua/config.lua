@@ -4,39 +4,21 @@ vim.opt.nu = true
 
 vim.opt.scrolloff = 8
 
-vim.opt.hlsearch = false
 vim.opt.incsearch = true
 
 vim.opt.colorcolumn = "80"
 
 vim.opt.spell = true
-vim.opt.spelllang = { "en", "es" }
+vim.opt.spelllang = "en"
 
-vim.opt.guicursor = ""
-
-vim.opt.completeopt = { "menuone", "noselect", "popup", "fuzzy" }
-
--- for project specific config
 vim.opt.exrc = true
 
--- transparent background
-vim.cmd([[
-  hi Normal guibg=NONE ctermbg=NONE
-  hi NormalNC guibg=NONE ctermbg=NONE
-  hi NonText guibg=NONE ctermbg=NONE
-  hi EndOfBuffer guibg=NONE ctermbg=NONE
-]])
-
 -- # mappings
-
 vim.keymap.set({ 'i', 'n', 'v' }, '<C-C>', '<esc>', { desc = 'Make Ctrl+C behave exactly like escape.' })
 
 -- ## clipboard
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
-
--- ## toggle word wrap
-vim.keymap.set('n', '<leader>wr', ':set wrap!<CR>', { silent = true, desc = 'Toggle Wrap' })
 
 -- ## telescope
 local builtin = require('telescope.builtin')

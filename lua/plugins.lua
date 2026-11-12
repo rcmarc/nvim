@@ -5,6 +5,8 @@ vim.pack.add({
 	'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
 	'https://github.com/nvim-telescope/telescope.nvim',
 	'https://github.com/tpope/vim-fugitive',
+	'https://github.com/mason-org/mason.nvim',
+	'https://github.com/mason-org/mason-lspconfig.nvim',
 })
 
 -- enable treesitter highlight for every installed parser
