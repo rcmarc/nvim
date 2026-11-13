@@ -1,5 +1,4 @@
 vim.diagnostic.config({
-	update_in_insert = true,
 	virtual_text = true,
 })
 
@@ -8,20 +7,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		local opts = { buffer = args.buf }
 		if client and client:supports_method('textDocument/completion') then
-			-- Enable completion and set autotrigger to true for automatic popup
 			vim.lsp.completion.enable(true, client.id, args.buf)
 			vim.keymap.set('i', '<c-space>', vim.lsp.completion.get, opts)
 		end
-		vim.keymap.set("n", "<leader>gq", vim.lsp.buf.format, opts)
-		vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
-		vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "<leader>gf", vim.diagnostic.open_float, opts)
-		vim.keymap.set("n", "<leader>gca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "<leader>gr", vim.lsp.buf.rename, opts)
-		vim.keymap.set("n", "<leader>gt", vim.lsp.buf.references, opts)
-		vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>]d", function() vim.diagnostic.jump({ count = 1, float = true }) end, opts)
-		vim.keymap.set("n", "<leader>[d", function() vim.diagnostic.jump({ count = -1, float = true }) end, opts)
+		vim.keymap.set("n", "grq", vim.lsp.buf.format, opts)
 	end
 })
 
@@ -76,10 +65,3 @@ vim.lsp.config('lua_ls', {
 	}
 })
 
--- aditional root markers for scala.
-vim.lsp.config('metals', {
-	root_markers = {
-		'project.scala', '.bsp', '.scala-build',
-		'build.sbt', 'build.sc', { 'build.gradle', 'build.gradle.kts' }, 'pom.xml',
-	},
-})
