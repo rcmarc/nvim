@@ -32,7 +32,6 @@ vim.pack.add({
 })
 
 local telescope = require('telescope')
-telescope.setup()
 pcall(telescope.load_extension, 'fzf')
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', function() builtin.find_files { hidden = true } end, { desc = 'Telescope find files' })
